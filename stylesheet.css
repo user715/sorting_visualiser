@@ -1,0 +1,17 @@
+header{
+    background-color: gray;
+    padding: 5px;
+}
+header p{
+    display: inline;
+    color: rgb(0, 15, 65);
+}
+#mainHeading{
+    color: rgb(0, 15, 65);
+    text-align: center;
+}
+#container{
+    text-align:center;
+    border:5px solid black;
+    margin:20px 30px;
+}
