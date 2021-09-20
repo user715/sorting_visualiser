@@ -32,8 +32,8 @@ runBtn.addEventListener("click",function (){
     switch(algoValue)
     {
         case "0":bubbleSort();break;
-        case "1":break;
-        case "2":break;
+        case "1":insertionSort();break;
+        case "2":selectionSort();break;
         case "3":mergeSort(0,arrSize-1);break;
         case "4":break;
         case "5":break;
@@ -133,6 +133,122 @@ function bubbleSort(){
 function last(tempSize) {document.getElementById((tempSize-1).toString()).style.backgroundColor="rgb(0,0,255)"}
 ///BUBBLE SORT
 
+// INSERTION SORT BEGINS.
+function insertionSort()
+{
+    var i,j;
+    i=1;
+    j=0;
+    var pj=arrSize; // index of previous object
+    var ky=document.getElementById(i.toString()); // ith object
+    var kyv=parseInt(ky.style.height.toString()); // value of ith object
+    var itvl=setInterval(function(){
+        pj=j;
+        var nxtobj=document.getElementById((j+1).toString()); // next object
+        if(j>=0)
+        { 
+           var currobj=document.getElementById(j.toString()); // current(jth) object
+           var currobjv=parseInt(currobj.style.height.toString()); // jth object value
+        }
+        if(j<0)
+        {
+            nxtobj.style.height=kyv.toString()+"px";
+            nxtobj.style.backgroundColor="rgb(0,0,255)";
+            //changing the color of the sorted bar blue
+            i++;
+            j=i-1;
+            if(i==arrSize)
+            {
+                clearInterval(itvl);
+            }
+            ky=document.getElementById(i.toString());
+            kyv=parseInt(ky.style.height.toString());
+        }
+        
+        if(pj>=0 && currobjv<=kyv)
+        {
+            nxtobj.style.height=kyv.toString()+"px";
+            nxtobj.style.backgroundColor="rgb(0,0,255)";
+            //changing the color of the sorted bar blue
+            i++;
+            j=i-1;
+            if(i==arrSize)
+            {
+                clearInterval(itvl);
+            }
+            ky=document.getElementById(i.toString());
+            kyv=parseInt(ky.style.height.toString());
+        }
+        else
+        {
+            nxtobj.style.height=currobjv.toString()+"px";
+            currobj.style.backgroundColor="rgb(255,0,0)";
+            nxtobj.style.backgroundColor="rgb(0,0,255)";
+            j--;
+        }
+    },(10-speed/10)*2)
+}
+// INSERTION SORT ENDS.
+
+
+// SELECTION SORT BEGINS
+function selectionSort()
+{
+    var i,j;
+    i=0;
+    j=0;
+    var mn; // object of current minimum
+    var obj1; // object of current bar
+    var obj1v; // value of current bar
+    var mnval; // value of current minimum
+    var midx; // index(id) of current minimum 
+    var pj=-1; // index(id) of previous bar
+    mn=document.getElementById(parseInt(0).toString());
+    mnval=parseInt(mn.style.height.toString());
+    midx=0;
+var itvl=setInterval(function(){
+    j++;
+    if(j==arrSize)
+    {
+        var tm=document.getElementById(midx.toString()); 
+        var mn=document.getElementById(i.toString());
+        swapone(mn,tm);
+        i++;
+        j=i;
+        if(i==arrSize)
+        {
+            clearInterval(itvl);
+            setTimeout(enable,delay);
+        }
+        else
+        {
+            mn=document.getElementById(i.toString());
+            mnval=parseInt(mn.style.height.toString());
+            midx=i;
+        }
+    }
+    if(i!=arrSize)
+    {    
+        var prevobj;
+        if(pj>-1)  
+        {
+            prevobj=document.getElementById(pj.toString());
+            prevobj.style.backgroundColor="rgb(0,255,0)"; 
+            // changing the colour of previous object to green                                                  
+        }
+        obj1=document.getElementById(j.toString());
+        obj1v=parseInt(obj1.style.height.toString());
+        obj1.style.backgroundColor="rgb(255,0,0)";
+        // changing the colour of current object to red   
+        if(mnval>obj1v)
+        {
+            mnval=obj1v;
+            midx=j;
+        }
+    }pj=j;
+},(10-(speed/10))*2)
+}
+// SELECTION SORT ENDS
 
 
 
