@@ -162,8 +162,11 @@ function insertionSort()
                 clearInterval(itvl);
                 enable();
             }
-            ky=document.getElementById(i.toString());
-            kyv=parseInt(ky.style.height.toString());
+            else
+            {
+                ky=document.getElementById(i.toString());
+                kyv=parseInt(ky.style.height.toString());
+            }
         }
         
         if(pj>=0 && currobjv<=kyv)
@@ -178,8 +181,11 @@ function insertionSort()
                 clearInterval(itvl);
                 enable();
             }
-            ky=document.getElementById(i.toString());
-            kyv=parseInt(ky.style.height.toString());
+            else
+            {
+                ky=document.getElementById(i.toString());
+                kyv=parseInt(ky.style.height.toString());
+            }
         }
         else
         {
@@ -188,7 +194,7 @@ function insertionSort()
             nxtobj.style.backgroundColor="rgb(0,0,255)";
             j--;
         }
-    },(10-speed/10)*2)
+    },speed)
 }
 // INSERTION SORT ENDS.
 
@@ -255,7 +261,7 @@ var itvl=setInterval(function(){
             midx=j;
         }
     }pj=j;
-},(10-(speed/10))*2)
+},speed)
 }
 // SELECTION SORT ENDS
 
