@@ -160,6 +160,7 @@ function insertionSort()
             if(i==arrSize)
             {
                 clearInterval(itvl);
+                enable();
             }
             ky=document.getElementById(i.toString());
             kyv=parseInt(ky.style.height.toString());
@@ -193,6 +194,13 @@ function insertionSort()
 
 
 // SELECTION SORT BEGINS
+function swapone(e1,e2)
+{  
+    var swapTemp=e2.style.height;
+    e2.style.height=e1.style.height;
+    e1.style.height=swapTemp;
+    e1.style.backgroundColor="rgb(0,0,255)";     
+}
 function selectionSort()
 {
     var i,j;
