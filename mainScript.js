@@ -175,6 +175,7 @@ function insertionSort()
             if(i==arrSize)
             {
                 clearInterval(itvl);
+                enable();
             }
             ky=document.getElementById(i.toString());
             kyv=parseInt(ky.style.height.toString());
@@ -218,7 +219,7 @@ var itvl=setInterval(function(){
         if(i==arrSize)
         {
             clearInterval(itvl);
-            setTimeout(enable,delay);
+            enable();
         }
         else
         {
